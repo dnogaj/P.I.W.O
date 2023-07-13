@@ -1,11 +1,11 @@
 import React from 'react';
-import Cards from '../components/Cards';
+import CardsSections from '../components/CardsSections';
 
 function Sections() {
 
     return(
         <>
-            <Cards></Cards>
+            <CardsSections />
         </>
     );
 }

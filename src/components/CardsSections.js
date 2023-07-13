@@ -3,7 +3,7 @@ import CardItem from "./CardItem";
 import './Cards.css';
 
 
-function Cards() {
+function CardsSections() {
     return (
         <div className="cards">
             <h1>
@@ -14,44 +14,38 @@ function Cards() {
                     <ul className="cards__items">
                         <CardItem 
                             src='images/ski.jpg'
-                            text='testowy kafelek 1'
+                            text='Nrciarstwo'
                             label='Narciarstwo'
-                            path=''
+                            path='/sections/skiing'
                         />
                         <CardItem 
                             src='images/gs.jpg'
                             text='testowy kafelek 2'
-                            label='Snowboard'
-                            path=''
+                            label='snowboarding'
+                            path='/sections/snowboarding'
                         />
-                        {/* <CardItem 
-                            src='images/sail.jpg'
-                            text='testowy kafelek 2'
-                            label='Żeglarstwo'
-                            path=''
-                        /> */}
                     </ul>
-                    <ul>
+                    <ul className="cards__items">
                         <CardItem 
                             src='images/sail.jpg'
-                            text='testowy kafelek 2'
-                            label='Żeglarstwo'
-                            path=''
+                            text='testowy kafelek 3'
+                            label='żeglowanie'
+                            path='/sections/sailing'
                         />
                     </ul>
                     <ul className="cards__items">
 
                         <CardItem 
-                            src='images/rolki.jpg'
+                            src='images/plywanie.jpg'
                             text='testowy kafelek 2 wiersz'
-                            label='Rolkarstwo'
-                            path=''
+                            label='pływanie'
+                            path='/sections/swimming'
                         />
                         <CardItem 
-                            src='images/plywanie.jpg'
+                            src='images/rolki.jpg'
                             text='testowy kafelek2 2 wiersz'
-                            label='Pływanie'
-                            path=''
+                            label='rolki'
+                            path='/sections/skating'
                         />
                     </ul>
                 </div>
@@ -61,4 +55,4 @@ function Cards() {
 }
 
 
-export default Cards
+export default CardsSections
