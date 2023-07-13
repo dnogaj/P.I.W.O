@@ -11,7 +11,7 @@ export const Button = ({
     onClick,
     buttonStyle,
     buttonSize,
-    linkTo = '/sing-up'
+    linkTo
 }) => {
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
 

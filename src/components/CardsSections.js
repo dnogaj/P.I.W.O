@@ -13,46 +13,39 @@ function CardsSections() {
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/ski.jpg'
                             text='Nrciarstwo'
                             label='Narciarstwo'
-                            path='/sections/sailing'
+                            path='/sections/skiing'
                         />
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/gs.jpg'
                             text='testowy kafelek 2'
                             label='snowboarding'
                             path='/sections/snowboarding'
                         />
+                    </ul>
+                    <ul className="cards__items">
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/sail.jpg'
                             text='testowy kafelek 3'
                             label='żeglowanie'
                             path='/sections/sailing'
                         />
-
                     </ul>
                     <ul className="cards__items">
 
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/plywanie.jpg'
                             text='testowy kafelek 2 wiersz'
                             label='pływanie'
                             path='/sections/swimming'
                         />
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/rolki.jpg'
                             text='testowy kafelek2 2 wiersz'
                             label='rolki'
                             path='/sections/skating'
-                        />
-                    </ul>
-                    <ul className="cards__items">
-                        <CardItem 
-                            src='images/img-1.png'
-                            text='testowy kafelek 3 wiersz'
-                            label='test6'
-                            path=''
                         />
                     </ul>
                 </div>

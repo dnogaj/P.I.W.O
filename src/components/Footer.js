@@ -56,7 +56,7 @@ function Footer() {
       </div>
       <section class='social-media'>
         <div class='social-media-wrap'>
-          <small class='website-rights'>P.I.W.O © 2020 Wszelkie prawa zastrzeżone</small>
+          <small class='website-rights'>P.I.W.O © 2023 Wszelkie prawa zastrzeżone</small>
         </div>
       </section>
     </div>

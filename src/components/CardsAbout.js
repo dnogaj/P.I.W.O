@@ -13,21 +13,21 @@ function CardsAbout() {
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <CardItem 
-                            src='images/img-1.png'
-                            text='testowy kafelek 1'
+                            src='images/fb.png'
+                            text='Tu najwięcej się dzieje..'
                             label='Facebook'
                             path='https://www.facebook.com/knlider'
                         />
                         <CardItem 
-                            src='images/img-1.png'
-                            text='Zaczynamy'
+                            src='images/ig.png'
+                            text='Zaczynamy swoją przygodę również na Instagramie'
                             label='Instagram'
                             path='https://www.instagram.com/knlider/'
                         />
                         <CardItem 
-                            src='images/img-1.png'
-                            text='testowy kafelek 3'
-                            label='test3'
+                            src='images/beer.png'
+                            text='Tam gdzie zawsze :)'
+                            label='MS AGH'
                             path=''
                         />
 
