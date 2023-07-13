@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../components/AuthContext';
 import './LoginForm.css';
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, login } = useContext(AuthContext);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -29,7 +30,8 @@ function LoginForm() {
     .then(response => response.json())
     .then(data => {
       if (data.message === 'Logged in successfully') {
-        setIsLoggedIn(true);
+        login();
+        localStorage.setItem('isLoggedIn', 'true');
       } else {
         alert(data.error);
       }
@@ -38,7 +40,6 @@ function LoginForm() {
       console.error('Error:', error);
     });
   };
-
   return (
     isLoggedIn 
     ? <div>Zalogowano pomyślnie</div> 
