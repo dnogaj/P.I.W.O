@@ -6,6 +6,34 @@ import './Cards.css';
 function CardsAbout() {
     return (
         <div className="cards">
+            <div className='text-area-container'>
+                <h1>
+                    Troszkę o naszym klubie..
+                </h1>
+                <p>
+                    KN LIDER to klub z wieloletnią tradycją. Jego datę założenia pamiętają tylko najstarsi górole. Klub stawia na jakość kształcenia, nie na ilość. Szkoli ma łych grupach niezależnie od sportu.
+                </p>
+            </div>
+
+            <div className="cards__container">
+                <div className="cards__wrapper">
+                    <ul className="cards__items">
+                        <CardItem 
+                            src='images/logo.jpg'
+                            text='Niedawna aktualizacja wysłużonego loga klubu.'
+                            label='Logo'
+                            path=''
+                        />
+                        <CardItem 
+                            src='images/prezes2.jpg'
+                            text='To na nim opiera się cały klub.'
+                            label='Prezes'
+                            path=''
+                        />
+                    </ul>
+                </div>
+            </div>
+
             <h1>
                 Kim jesteśmy?
             </h1> 
