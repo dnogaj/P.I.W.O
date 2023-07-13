@@ -14,6 +14,7 @@ import SkiingSection from './pages/sections/SkiingSection';
 import SnowboardingSection from './pages/sections/SnowboardingSection';
 import SwimmingSection from './pages/sections/SwimmingSection';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LoginForm from './pages/LoginForm';
 
 function AppRouter() {
   return (
@@ -32,6 +33,8 @@ function AppRouter() {
           <Route path='/sections/skiing' Component={SkiingSection}/>
           <Route path='/sections/snowboarding' Component={SnowboardingSection}/>
           <Route path='/sections/swimming' Component={SwimmingSection}/>
+
+          <Route path='/log-in' Component={LoginForm}/>
         </Routes>
         <Footer />
       </BrowserRouter>
