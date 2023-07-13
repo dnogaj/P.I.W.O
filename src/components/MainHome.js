@@ -7,7 +7,7 @@ import './MainHome.css';
 function MainHome() {
     return (
         <div className='hero-container'>
-            <video src="/videos/video-ski.mp4"
+            <video src="/videos/bimber.mp4"
             autoPlay loop muted />
             <h1>POSTAKADEMICKA INICJATYWA WIETNAMSKICH OSLIZGÓW</h1>
             <p>Czekasz na oklaski?</p>
