@@ -1,18 +1,40 @@
 import React from "react";
 import CardItem from "./CardItem";
 import './Cards.css';
+import '../pages/TextArea.css';
 
 
 function CardsAbout() {
     return (
         <div className="cards">
             <div className='text-area-container'>
-                <h1>
+                <h1 className="h1-about">
                     Troszkę o naszym klubie..
                 </h1>
-                <p>
-                    KN LIDER to klub z wieloletnią tradycją. Jego datę założenia pamiętają tylko najstarsi górole. Klub stawia na jakość kształcenia, nie na ilość. Szkoli ma łych grupach niezależnie od sportu.
-                </p>
+                <ul className="ul-about">
+                    KN LIDER to klub z wieloletnią tradycją. Jego datę założenia pamiętają tylko najstarsi górole. Klub stawia na jakość kształcenia, nie na ilość. 
+                    Szkolimy w małych grupach niezależnie od sportu. Stawiamy przede wszystkim na frajdę jaką mają nasi podopieczni z tego co robią.
+                </ul>
+                <h2 className="h2-about">
+                    Co robimy?
+                </h2>
+                <ul className="ul-about">
+                    <li>
+                        Szkolimy w małych grupach niezależnie od sportu. 
+                    </li>
+                    <li>
+                        Prowadzimy kursy instruktorskie oraz patentowe.
+                    </li>
+                    <li>
+                        Prowadzimy obozy sportowe.
+                    </li>
+                    <li>
+                        Świadczymy usługi dla firm i zorganizowanych grup.
+                    </li>
+                </ul>
+                <h2 className="h2-about">
+                    Znają nas na całej Polsce!
+                </h2>
             </div>
 
             <div className="cards__container">
@@ -54,7 +76,7 @@ function CardsAbout() {
                         />
                         <CardItem 
                             src='images/jdkowal.jpg'
-                            text='Narciarz jakich mało. Zawsze chodzi z bananem na twarzy.'
+                            text='Narciarz jakich mało. Zawsze chodzi z bananem na twarzy. Z zawodu Product Manager.'
                             label='jdkowal'
                             path='https://github.com/jd-kowal'
                         />

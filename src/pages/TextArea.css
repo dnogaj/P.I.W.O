@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 1000px;
+    min-height: 400px;
     width: 1200px;
     flex-direction: column;
     text-align: justify;
@@ -12,3 +12,27 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.h1-about {
+    font-size: xx-large;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.p-about {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.h2-about {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.ul-about {
+    font-size: large;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 10px;
+}
+  

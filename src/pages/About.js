@@ -5,8 +5,8 @@ import CardsAbout from '../components/CardsAbout';
 function About() {
     return(
         <>
-        <CardsAbout></CardsAbout>
-    </>
+            <CardsAbout></CardsAbout>
+        </>
     );
 }
 
