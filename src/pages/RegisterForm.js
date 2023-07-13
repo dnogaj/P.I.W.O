@@ -18,7 +18,7 @@ function RegisterForm() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     if (password === passwordConfirm) {
       // Tutaj wysyłamy dane rejestracji do serwera Flask
       fetch('http://127.0.0.1:5000/register', { 

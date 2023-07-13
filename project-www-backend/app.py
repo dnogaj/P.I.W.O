@@ -2,7 +2,7 @@ from flask_admin.contrib.sqla import ModelView
 from flask import Flask, request, render_template
 from flask_admin import Admin
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -60,6 +60,20 @@ def register():
     db.session.commit()
 
     return {'message': 'User registered successfully'}, 201
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+
+    user = User.query.filter_by(email=email).first()
+
+    if user and check_password_hash(user.password_hash, password):
+        return {'message': 'Logged in successfully'}, 200
+
+    return {'error': 'Invalid email or password'}, 400
 
 
 if __name__ == '__main__':
