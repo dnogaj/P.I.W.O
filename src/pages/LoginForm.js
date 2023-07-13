@@ -1,11 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../components/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { isLoggedIn, login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -32,6 +34,8 @@ function LoginForm() {
       if (data.message === 'Logged in successfully') {
         login();
         localStorage.setItem('isLoggedIn', 'true');
+        navigate("/");
+        alert("Logowanie przebiegło pomyślnie!");
       } else {
         alert(data.error);
       }
@@ -41,9 +45,8 @@ function LoginForm() {
     });
   };
   return (
-    isLoggedIn 
-    ? <div>Zalogowano pomyślnie</div> 
-    : <div className="login-container">
+    !isLoggedIn &&
+     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         <label>
           Email:

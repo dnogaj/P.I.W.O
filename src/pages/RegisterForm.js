@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../components/AuthContext';
+import './LoginForm.css';
 
 function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -18,7 +23,7 @@ function RegisterForm() {
   };
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     if (password === passwordConfirm) {
       // Tutaj wysyłamy dane rejestracji do serwera Flask
       fetch('http://127.0.0.1:5000/register', { 
@@ -32,7 +37,17 @@ function RegisterForm() {
         })
       })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data);
+        if (data.message === 'User registered successfully') { // Zmodyfikuj to zgodnie z rzeczywistą odpowiedzią z serwera
+          login();
+          localStorage.setItem('isLoggedIn', 'true');
+          alert("Rejestracja przebiegła pomyślnie!");
+          navigate("/");
+        } else {
+          alert(data.error);
+        }
+      })
       .catch((error) => {
         console.error('Error:', error);
       });
@@ -42,24 +57,26 @@ function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email:
-        <input type="email" value={email} onChange={handleEmailChange} />
-      </label>
-      <br />
-      <label>
-        Hasło:
-        <input type="password" value={password} onChange={handlePasswordChange} />
-      </label>
-      <br />
-      <label>
-        Potwierdź hasło:
-        <input type="password" value={passwordConfirm} onChange={handlePasswordConfirmChange} />
-      </label>
-      <br />
-      <input type="submit" value="Zarejestruj się" />
-    </form>
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <label>
+          Email:
+          <input type="text" value={email} onChange={handleEmailChange} className="input-field"/>
+        </label>
+        <br />
+        <label>
+          Hasło:
+          <input type="password" value={password} onChange={handlePasswordChange} className="input-field"/>
+        </label>
+        <br />
+        <label>
+          Potwierdź hasło:
+          <input type="password" value={passwordConfirm} onChange={handlePasswordConfirmChange} className="input-field"/>
+        </label>
+        <br />
+        <input type="submit" value="Zarejestruj się" className="submit-button"/>
+      </form>
+    </div>
   );
 }
 
