@@ -21,7 +21,7 @@ function CardsSections() {
                         <CardItem 
                             src='images/gs.jpg'
                             text='Dowiedz się więcej o sekcji Snowboardowej.'
-                            label='snowboarding'
+                            label='Snowboarding'
                             path='/sections/snowboarding'
                         />
                     {/* </ul>
@@ -29,7 +29,7 @@ function CardsSections() {
                         <CardItem 
                             src='images/sail.jpg'
                             text='Dowiedz się więcej o naszych zajęciach, startach w zawodach, obozach oraz kursach.'
-                            label='żeglowanie'
+                            label='Żeglowanie'
                             path='/sections/sailing'
                         />
                     </ul>
@@ -38,13 +38,13 @@ function CardsSections() {
                         <CardItem 
                             src='images/plywanie.jpg'
                             text='Dowiedz się więcej o treningach.'
-                            label='pływanie'
+                            label='Pływanie'
                             path='/sections/swimming'
                         />
                         <CardItem 
                             src='images/rolki.jpg'
                             text='Dowiedz się więcej o Inline Skating Team.'
-                            label='rolki'
+                            label='Rolki'
                             path='/sections/skating'
                         />
                     </ul>
