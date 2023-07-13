@@ -1,0 +1,10 @@
+.no-page-error {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'PT Sans', sans-serif;
+    margin-top: 20%;
+    font-size: 40px;
+}
