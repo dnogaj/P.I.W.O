@@ -13,45 +13,44 @@ function Cards() {
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/ski.jpg'
                             text='testowy kafelek 1'
-                            label='test1'
+                            label='Narciarstwo'
                             path=''
                         />
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/gs.jpg'
                             text='testowy kafelek 2'
-                            label='test2'
+                            label='Snowboard'
                             path=''
                         />
+                        {/* <CardItem 
+                            src='images/sail.jpg'
+                            text='testowy kafelek 2'
+                            label='Żeglarstwo'
+                            path=''
+                        /> */}
+                    </ul>
+                    <ul>
                         <CardItem 
-                            src='images/img-1.png'
-                            text='testowy kafelek 3'
-                            label='test3'
+                            src='images/sail.jpg'
+                            text='testowy kafelek 2'
+                            label='Żeglarstwo'
                             path=''
                         />
-
                     </ul>
                     <ul className="cards__items">
 
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/rolki.jpg'
                             text='testowy kafelek 2 wiersz'
-                            label='test4'
+                            label='Rolkarstwo'
                             path=''
                         />
                         <CardItem 
-                            src='images/img-1.png'
+                            src='images/plywanie.jpg'
                             text='testowy kafelek2 2 wiersz'
-                            label='test5'
-                            path=''
-                        />
-                    </ul>
-                    <ul className="cards__items">
-                        <CardItem 
-                            src='images/img-1.png'
-                            text='testowy kafelek 3 wiersz'
-                            label='test6'
+                            label='Pływanie'
                             path=''
                         />
                     </ul>
