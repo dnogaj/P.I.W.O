@@ -78,19 +78,19 @@ function Footer() {
           </div>
           <div class='footer-link-items'>
             <h2>Skontaktuj się z nami</h2>
-            <Link to='/'>Kontakt</Link>
-            <Link to='/'>Pomoc</Link>
-            <Link to='/'>Sponsoring</Link>
-            <Link to='/'>Regulamin</Link>
+            <Link to='/kontakt'>Kontakt</Link>
+            <Link to='/help'>Pomoc</Link>
+            <Link to='/sponsoring'>Sponsoring</Link>
+            <Link to='/regulamin'>Regulamin</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>Social Media</h2>
-            <Link to='https://www.instagram.com/' target='_blank'>Instagram</Link>
-            <Link to='https://www.facebook.com/' target='_blank'>Facebook</Link>
-            <Link to='https://www.youtube.com/' target='_blank'>Youtube</Link>
-            <Link to='https://www.twitter.com/' target='_blank'>Twitter</Link>
+            <Link to='https://www.instagram.com/knlider/' target='_blank'>Instagram</Link>
+            <Link to='https://www.facebook.com/knlider' target='_blank'>Facebook</Link>
+            <Link to='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>Youtube</Link>
+            <Link to='https://twitter.com/tmorzech/status/1521393412720807936' target='_blank'>Twitter</Link>
           </div>
         </div>
       </div>

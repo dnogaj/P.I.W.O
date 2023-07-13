@@ -33,7 +33,7 @@ function CardsHome() {
                                 path='https://www.gov.pl/web/sport'
                             />
                             <CardItem 
-                                src='images/krakow_logo.png'
+                                src='images/krakow_logo_new.jpg'
                                 text='Komu jesteśmy wierni <3'
                                 label='Współpraca'
                                 path='https://www.krakow.pl/'

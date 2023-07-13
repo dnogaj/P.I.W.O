@@ -19,7 +19,7 @@ function CardsAbout() {
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <CardItem 
-                            src='images/logo.jpg'
+                            src='images/logo_lider.jpg'
                             text='Niedawna aktualizacja wysłużonego loga klubu.'
                             label='Logo'
                             path=''
