@@ -13,7 +13,7 @@ function SkiingSection() {
         {/* <image src="/image/ski.jpg"
         autoPlay loop muted /> */}
         <h1>Skiing</h1>
-        <p>"It's incredible how many emotions you feel when crossing the finish line and seeing that you are No. 1." ~ Marcel Hirscher</p>
+        <p className='p-about'>"It's incredible how many emotions you feel when crossing the finish line and seeing that you are No. 1." ~ Marcel Hirscher &#129305;</p>
       </div> 
         <div className='text-area-container'>
           <div className="cards">

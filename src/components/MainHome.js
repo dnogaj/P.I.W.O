@@ -10,7 +10,7 @@ function MainHome() {
             <video src="/videos/video-ski.mp4"
             autoPlay loop muted />
             <h1>POSTAKADEMICKA INICJATYWA WIETNAMSKICH OŚLIZGÓW</h1>
-            <p>Czekasz na oklaski?</p>
+            <p>Czekasz na oklaski? &#129327;</p>
             <div className="hero-btns">
                 <Button
                     className='btns'

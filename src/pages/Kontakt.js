@@ -28,13 +28,13 @@ function Kontakt() {
                     <ul className="cards__items">
                         <CardItem 
                             src='images/telefon.jpg'
-                            text='Pod numerem: 601 550 300'
+                            text='Pod numerem: 601 550 300 &#128241;'
                             label='Telefon'
                             path=''
                         />
                         <CardItem 
                             src='images/gmail.png'
-                            text='Tu najlepiej: klub@lider.krakow.pl'
+                            text='Tu najlepiej: klub@lider.krakow.pl &#128234;'
                             label='Mail'
                             path=''
                         />

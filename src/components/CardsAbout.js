@@ -9,11 +9,11 @@ function CardsAbout() {
         <div className="cards">
             <div className='text-area-container'>
                 <h1 className="h1-about">
-                    Troszkę o naszym klubie..
+                    Troszkę o naszym klubie.. &#129488;
                 </h1>
                 <ul className="ul-about">
-                    KN LIDER to klub z wieloletnią tradycją. Jego datę założenia pamiętają tylko najstarsi górole. Klub stawia na jakość kształcenia, nie na ilość. 
-                    Szkolimy w małych grupach niezależnie od sportu. Stawiamy przede wszystkim na frajdę jaką mają nasi podopieczni z tego co robią.
+                    KN LIDER to klub z wieloletnią tradycją. &#128293; Jego datę założenia pamiętają tylko najstarsi górole. &#9978; Klub stawia na jakość kształcenia &#11088;, nie na ilość. 
+                    Szkolimy w małych grupach niezależnie od sportu. &#128118; Stawiamy przede wszystkim na frajdę jaką mają nasi podopieczni z tego co robią. &#128293;
                 </ul>
                 <h2 className="h2-about">
                     Co robimy?
@@ -33,7 +33,7 @@ function CardsAbout() {
                     </li>
                 </ul>
                 <h2 className="h2-about">
-                    Znają nas na całej Polsce!
+                    Znają nas na całej Polsce! &#128051;
                 </h2>
             </div>
 
@@ -48,7 +48,7 @@ function CardsAbout() {
                         />
                         <CardItem 
                             src='images/prezes2.jpg'
-                            text='To na nim opiera się cały klub.'
+                            text='To na nim opiera się cały klub. &#128074;'
                             label='Prezes'
                             path=''
                         />
@@ -64,19 +64,19 @@ function CardsAbout() {
                     <ul className="cards__items">
                         <CardItem 
                             src='images/hubercik.png'
-                            text='Miasteczkowa legenda (widział tam papieża). Snowboardzista i zapalony rowerzysta górski.'
+                            text='Miasteczkowa legenda (widział tam papieża). Snowboardzista i zapalony rowerzysta górski. &#127938;'
                             label='norka02'
                             path='https://github.com/norka02'
                         />
                         <CardItem 
                             src='images/noghaj.jpg'
-                            text='Nałogowy gracz LOL-a. Legendy głoszą, iż ma swoich sobowtórów na uczelni.'
+                            text='Nałogowy gracz LOL-a. Legendy głoszą, iż ma swoich sobowtórów na uczelni. &#127928;'
                             label='dnogaj'
                             path='https://github.com/dnogaj'
                         />
                         <CardItem 
                             src='images/jdkowal.jpg'
-                            text='Narciarz jakich mało. Zawsze chodzi z bananem na twarzy. Z zawodu Product Manager.'
+                            text='Narciarz jakich mało. Zawsze chodzi z bananem na twarzy. Z zawodu Product Manager. &#129428;'
                             label='jdkowal'
                             path='https://github.com/jd-kowal'
                         />
