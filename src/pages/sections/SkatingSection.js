@@ -3,6 +3,7 @@ import "../TextArea.css";
 import '../../App.css';
 import '../../components/Cards.css';
 import './SkatingSection.css';
+import CardItem from '../../components/CardItem';
 import Form from '../Form';
 
 function SkatingSection() {
