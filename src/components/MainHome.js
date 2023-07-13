@@ -9,7 +9,7 @@ function MainHome() {
         <div className='hero-container'>
             <video src="/videos/video-ski.mp4"
             autoPlay loop muted />
-            <h1>POSTAKADEMICKA INICJATYWA WIETNAMSKICH OSLIZGÓW</h1>
+            <h1>POSTAKADEMICKA INICJATYWA WIETNAMSKICH OŚLIZGÓW</h1>
             <p>Czekasz na oklaski?</p>
             <div className="hero-btns">
                 <Button

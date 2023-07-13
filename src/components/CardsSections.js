@@ -9,27 +9,27 @@ function CardsSections() {
             <h1>
                 Nasze sekcje
             </h1> 
-            <div className="cards__container">
+            {/* <div className="cards__container"> */}
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <CardItem 
                             src='images/ski.jpg'
-                            text='Nrciarstwo'
+                            text='Dowiedz się więcej o treningach, obozach, kursach oraz świadczonych przez klub usługach.'
                             label='Narciarstwo'
                             path='/sections/skiing'
                         />
                         <CardItem 
                             src='images/gs.jpg'
-                            text='testowy kafelek 2'
-                            label='snowboarding'
+                            text='Dowiedz się więcej o sekcji Snowboardowej.'
+                            label='Snowboarding'
                             path='/sections/snowboarding'
                         />
-                    </ul>
-                    <ul className="cards__items">
+                    {/* </ul>
+                    <ul className="cards__items"> */}
                         <CardItem 
                             src='images/sail.jpg'
-                            text='testowy kafelek 3'
-                            label='żeglowanie'
+                            text='Dowiedz się więcej o naszych zajęciach, startach w zawodach, obozach oraz kursach.'
+                            label='Żeglowanie'
                             path='/sections/sailing'
                         />
                     </ul>
@@ -37,19 +37,19 @@ function CardsSections() {
 
                         <CardItem 
                             src='images/plywanie.jpg'
-                            text='testowy kafelek 2 wiersz'
-                            label='pływanie'
+                            text='Dowiedz się więcej o treningach.'
+                            label='Pływanie'
                             path='/sections/swimming'
                         />
                         <CardItem 
                             src='images/rolki.jpg'
-                            text='testowy kafelek2 2 wiersz'
-                            label='rolki'
+                            text='Dowiedz się więcej o Inline Skating Team.'
+                            label='Rolki'
                             path='/sections/skating'
                         />
                     </ul>
                 </div>
-            </div>
+            {/* </div> */}
         </div>
     );
 }

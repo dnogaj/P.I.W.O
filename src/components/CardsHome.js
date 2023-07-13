@@ -19,28 +19,6 @@ function CardsHome() {
                 </h2> 
                 <div className="cards__container">
                     <div className="cards__wrapper">
-                        {/* <ul className="cards__items">
-                            <CardItem 
-                                src='images/img-1.png'
-                                text='Zapraszamy wszystkich sportowych oślizgów do dołączenia. Oferujemy piwne czwartki wraz z jazdą na nartach każdej zimy. W sezonie letnim można nas spotkać na Bagrach WIELKICH oraz kruzujących na rolkach pod Tauron Areną w Krakowie.'
-                                label='Zapraszamy'
-                                path='http://localhost:3000/sections'
-                            />
-                            <CardItem 
-                                src='images/img-1.png'
-                                text='testowy kafelek 2'
-                                label='Współpraca'
-                                path=''
-                            />
-                            <CardItem 
-                                src='images/img-1.png'
-                                text='testowy kafelek 3'
-                                label='test3'
-                                path=''
-                            />
-
-                        </ul> */}
-
                         <ul className="cards__items">
                             <CardItem 
                                 src='images/sitn_pzn_horizontal.jpg'
@@ -61,7 +39,7 @@ function CardsHome() {
                                 path='https://www.krakow.pl/'
                             />
                             <CardItem 
-                                src='images/img-2.png'
+                                src='images/popeye.jpg'
                                 text='Co robimy w wolnych chwilach...'
                                 label='Hobby'
                                 path='https://www.youtube.com/watch?v=XtMy5IBmX7E'
