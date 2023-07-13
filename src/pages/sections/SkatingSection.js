@@ -1,7 +1,6 @@
 import React from 'react';
 import "../TextArea.css";
 import '../../App.css';
-import CardItem from "../../components/CardItem";
 import '../../components/Cards.css';
 import './SkatingSection.css';
 import Form from '../Form';

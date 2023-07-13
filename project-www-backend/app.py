@@ -20,6 +20,10 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(120), unique=True, nullable=False)
+    
+class NewsletterEmail(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
 
 def create_and_commit():
     # Create the database and the db table
@@ -40,6 +44,7 @@ class MicroBlogModelView(ModelView):
 
 admin.add_view(MicroBlogModelView(User, db.session))
 
+# Register
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
@@ -61,7 +66,7 @@ def register():
 
     return {'message': 'User registered successfully'}, 201
 
-
+# Login
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -74,6 +79,22 @@ def login():
         return {'message': 'Logged in successfully'}, 200
 
     return {'error': 'Invalid email or password'}, 400
+
+# Newsletter
+@app.route('/newsletter', methods=['POST'])
+def add_email():
+    data = request.get_json()
+    email = data.get('email')
+    if email:
+        existing_email = NewsletterEmail.query.filter_by(email=email).first()
+        if existing_email:
+            return {"error": "Email already exists!"}, 400
+        new_email = NewsletterEmail(email=email)
+        db.session.add(new_email)
+        db.session.commit()
+        return {"message": "Email added successfully!"}, 201
+    else:
+        return {"error": "No email provided!"}, 400
 
 
 if __name__ == '__main__':

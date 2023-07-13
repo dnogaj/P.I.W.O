@@ -1,9 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Footer.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (event) => {
+    //event.preventDefault();
+    fetch('http://127.0.0.1:5000/newsletter', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === "Email added successfully!") {
+          alert('Email dodany pomyślnie!');
+          setEmail('');
+        } else if (data.error === "Email already exists!") {
+            alert("Email został już dodany do newslettera!");
+            setEmail('');
+        } else {
+          alert('Email niepoprawny!');
+          setEmail('');
+        }
+      })
+      .catch((error) => {
+        alert('Wystąpił błąd!');
+        console.error('Error:', error);
+      });
+  };
+
+  const handleInputChange = (event) => {
+    setMessage(""); // Resetujemy wartość message przy zmianie zawartości pola input
+    setEmail(event.target.value);
+  };
+
   return (
     <div className='footer-container'>
       <section className='footer-subscription'>
@@ -14,14 +52,16 @@ function Footer() {
           Możesz się wypisać w dowolnym momencie.
         </p>
         <div className='input-areas'>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               className='footer-input'
               name='email'
               type='email'
               placeholder='Twój Email'
+              value={email}
+              onChange={handleInputChange}
             />
-            <Button buttonStyle='btn--outline'>Dołącz do nas</Button>
+            <Button buttonStyle='btn--outline' onClick={handleSubmit}>Dołącz do nas</Button>
           </form>
         </div>
       </section>
