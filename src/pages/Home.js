@@ -1,11 +1,14 @@
 import React from 'react';
 import './TextArea.css';
+import CardsHome from '../components/CardsHome';
+import MainHome from '../components/MainHome';
 
 function Home() {
     return(
-        <div className='text-area-container'>
-            TUTAJ WPISAĆ TEKST
-        </div>
+        <>
+            <MainHome></MainHome>
+            <CardsHome></CardsHome>
+        </>
     );
 }
 
