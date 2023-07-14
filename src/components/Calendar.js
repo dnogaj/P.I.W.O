@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
@@ -7,6 +7,7 @@ import format from "date-fns/format";
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
+import { AuthContext } from "./AuthContext";
 import "../App.css";
 
 const locales = {
@@ -24,6 +25,7 @@ const localizer = dateFnsLocalizer({
 const categories = ["Ski", "Sail", "Rollerblade", "Other"];
 
 function Calendarr() {
+  const { isLoggedIn } = useContext(AuthContext);
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
@@ -33,6 +35,8 @@ function Calendarr() {
   });
   const [allEvents, setAllEvents] = useState([]);
   const [filter, setFilter] = useState("All");
+
+  
 
   useEffect(() => {
     fetchEvents();
@@ -83,6 +87,7 @@ function Calendarr() {
   return (
     <div className="Calendar">
       <h1>Calendar</h1>
+      {isLoggedIn && ( <>
       <h2>Add New Event</h2>
       <div>
         <input
@@ -123,6 +128,7 @@ function Calendarr() {
           Add Event
         </button>
       </div>
+      </> )}
       <h2>Filter Events</h2>
       <select value={filter} onChange={(e) => setFilter(e.target.value)}>
         <option value="All">All</option>

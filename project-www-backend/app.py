@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 from dateutil.parser import parse
+import requests
 
 app = Flask(__name__)
 
@@ -42,13 +43,13 @@ class Article(db.Model):
     start_date = db.Column(db.Date)
     end_date = db.Column(db.Date)
     category = db.Column(db.String(50))
+    admin_approval = db.Column(db.Boolean, default=False)
 
     def __init__(self, title, start_date, end_date, category):
         self.title = title
         self.start_date = start_date
         self.end_date = end_date
         self.category = category
-    
 
 
 def create_and_commit():
@@ -73,7 +74,23 @@ class MicroBlogModelView(ModelView):
 admin.add_view(MicroBlogModelView(User, db.session))
 admin.add_view(MicroBlogModelView(NewsletterEmail, db.session))
 admin.add_view(MicroBlogModelView(Alerts, db.session))
+admin.add_view(MicroBlogModelView(Article, db.session))
 
+# Weryfikacja reCAPTCHA
+def verify_recaptcha(recaptcha_response):
+    secret_key = '6Lem2SInAAAAABNwckn-jN6IsWu3P2tsIMGZCX2V'
+    recaptcha_data = {
+        'secret': secret_key,
+        'response': recaptcha_response
+    }
+    r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=recaptcha_data)
+    result = r.json()
+    
+    # Jeśli operacja weryfikacji się powiodła, wynik zawierać będzie pole 'success' ustawione na True.
+    if result.get('success'):
+        return True
+    else:
+        return False
 
 # Register
 @app.route('/register', methods=['POST'])
@@ -81,6 +98,11 @@ def register():
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
+    recaptcha_response = data.get('g-recaptcha-response')
+
+    # Weryfikacja reCAPTCHA
+    if not verify_recaptcha(recaptcha_response):
+        return {'error': 'Invalid reCAPTCHA. Please try again.'}, 400
 
     if not email or not password:
         return {'error': 'Email and password required'}, 400
@@ -163,7 +185,7 @@ def get_alerts():
 
 @app.route('/events', methods=['GET'])
 def get_events():
-    articles = Article.query.all()
+    articles = Article.query.filter_by(admin_approval=True).all()
     articles_data = []
     for article in articles:
         article_data = {
@@ -177,17 +199,27 @@ def get_events():
 
     return jsonify(articles_data)
 
+
 @app.route('/events', methods=['POST'])
 def create_event():
     data = request.get_json()
     title = data.get('title')
-    start = data.get('start')
-    end = data.get('end')
+    start = parse(data.get('start'))
+    end = parse(data.get('end'))
     category = data.get('category')
+    print(title," ",start,"",type(start)," ",end," ",category)
+    find_article = Article.query.filter_by(title=title, start_date=str(start).split(" ")[0], end_date=str(end).split(" ")[0], category=category).first()
+    print(find_article)
+    if find_article:
+        print("#####################")
+        print("notSent")
+        return jsonify({'message': 'already exists'})
 
-    new_article = Article(title=title, start_date=parse(start), end_date=parse(end), category=category)
+    new_article = Article(title=title, start_date=start, end_date=end, category=category)
     db.session.add(new_article)
     db.session.commit()
+    print("#####################")
+    print("Sent")
     return jsonify({'message': 'Event added'}), 201
 
 

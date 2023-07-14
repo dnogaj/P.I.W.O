@@ -1,12 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/AuthContext';
+import ReCAPTCHA from "react-google-recaptcha";
 import './LoginForm.css';
 
 function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -22,6 +24,10 @@ function RegisterForm() {
     setPasswordConfirm(event.target.value);
   };
 
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password === passwordConfirm) {
@@ -33,7 +39,8 @@ function RegisterForm() {
         },
         body: JSON.stringify({
           email: email, 
-          password: password 
+          password: password,
+          'g-recaptcha-response': recaptchaValue 
         })
       })
       .then(response => response.json())
@@ -73,6 +80,11 @@ function RegisterForm() {
           Potwierdź hasło:
           <input type="password" value={passwordConfirm} onChange={handlePasswordConfirmChange} className="input-field"/>
         </label>
+        <br />
+        <ReCAPTCHA
+          sitekey="6Lem2SInAAAAAFr2kVbbMxuzWnfWjIy-_GpWYRwR"
+          onChange={handleRecaptchaChange}
+        />
         <br />
         <input type="submit" value="Zarejestruj się" className="submit-button"/>
       </form>
