@@ -6,6 +6,7 @@ from flask_admin import Admin
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
+from dateutil.parser import parse
 
 app = Flask(__name__)
 
@@ -34,6 +35,19 @@ class Alerts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), unique=True, nullable=False)
     text = db.Column(db.String(2048), unique=True, nullable=False)
+    
+class Article(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    start_date = db.Column(db.Date)
+    end_date = db.Column(db.Date)
+    category = db.Column(db.String(50))
+
+    def __init__(self, title, start_date, end_date, category):
+        self.title = title
+        self.start_date = start_date
+        self.end_date = end_date
+        self.category = category
     
 
 
@@ -145,6 +159,36 @@ def get_alerts():
 
     return jsonify(alerts_data)
 
+
+
+@app.route('/events', methods=['GET'])
+def get_events():
+    articles = Article.query.all()
+    articles_data = []
+    for article in articles:
+        article_data = {
+            'id': article.id,
+            'title': article.title,
+            'start': str(article.start_date),
+            'end': str(article.end_date),
+            'category': article.category
+        }
+        articles_data.append(article_data)
+
+    return jsonify(articles_data)
+
+@app.route('/events', methods=['POST'])
+def create_event():
+    data = request.get_json()
+    title = data.get('title')
+    start = data.get('start')
+    end = data.get('end')
+    category = data.get('category')
+
+    new_article = Article(title=title, start_date=parse(start), end_date=parse(end), category=category)
+    db.session.add(new_article)
+    db.session.commit()
+    return jsonify({'message': 'Event added'}), 201
 
 
 if __name__ == '__main__':
