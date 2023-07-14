@@ -1,5 +1,7 @@
-# to install packages use npm/yarn to package.json file and pip to requirements.txt file
-# before using delate pythonsqlite.db or move it to the 
+# To install packages use npm/yarn to package.json file and pip to requirements.txt file
+# Before using delate pythonsqlite.db from root folder
+
+# This site was created to WWWiJS project
 
 # Getting Started with Create React App
 
