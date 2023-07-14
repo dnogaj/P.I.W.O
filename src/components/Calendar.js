@@ -36,8 +36,6 @@ function Calendarr() {
   const [allEvents, setAllEvents] = useState([]);
   const [filter, setFilter] = useState("All");
 
-  
-
   useEffect(() => {
     fetchEvents();
   }, []);
@@ -60,6 +58,11 @@ function Calendarr() {
   }
 
   async function handleAddEvent() {
+    if (!newEvent.title || !newEvent.start || !newEvent.end || !newEvent.category) {
+      alert("Please fill all the fields");
+      return;
+    }
+
     const response = await fetch("http://127.0.0.1:5000/events", {
       method: "POST",
       headers: {
@@ -67,6 +70,7 @@ function Calendarr() {
       },
       body: JSON.stringify(newEvent),
     });
+
     if (response.ok) {
       alert("Event sent to server");
       setNewEvent({
@@ -83,7 +87,6 @@ function Calendarr() {
   }
 
   const filteredEvents = filter === "All" ? allEvents : allEvents.filter((event) => event.category === filter);
-
   return (
     <div className="Calendar">
       <h1>Calendar</h1>
