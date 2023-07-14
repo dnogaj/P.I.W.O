@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Linkify from 'react-linkify';
 import './InteractiveBlockList.css';
-
 
 function InteractiveBlockList() {
   const [blocks, setBlocks] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
-  const addBlock = () => {
-    if (blocks.length < 100) { 
-      setBlocks([...blocks, { title: '', text: '', editing: false }]);
-    }
-  };
-
-  const removeBlock = (index) => {
-    const newBlocks = blocks.filter((block, i) => i !== index);
-    setBlocks(newBlocks);
-  };
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/alerts')
+      .then(response => response.json())
+      .then(data => setBlocks(data))
+      .catch(err => console.log(err));
+  }, []);
 
   const nextBlock = () => {
     if (currentPage < Math.floor(blocks.length / 10)) { 
@@ -29,56 +25,26 @@ function InteractiveBlockList() {
     }
   };
 
-  const toggleEditing = (index) => {
-    setBlocks(
-      blocks.map((b, i) =>
-        i === index ? { ...b, editing: !b.editing } : b
-      )
-    );
-  };
+  const componentDecorator = (href, text, key) => (
+    <a href={href} key={key} target="_blank" rel="noopener noreferrer" className="link-style">
+      {text}
+    </a>
+  );
 
   return (
     <div>
-      <button onClick={addBlock}>Add block</button>
       {blocks
         .slice(currentPage * 10, (currentPage * 10) + 10)
         .map((block, index) => (
           <div key={index} className="interactive-block">
-            {block.editing ? (
-              <div>
-                <input
-                  placeholder="Title"
-                  value={block.title}
-                  onChange={(e) =>
-                    setBlocks(
-                      blocks.map((b, i) =>
-                        i === index ? { ...b, title: e.target.value } : b
-                      )
-                    )
-                  }
-                />
-                <textarea
-                  placeholder="Text"
-                  value={block.text}
-                  rows={block.text.split('\n').length} 
-                  onChange={(e) =>
-                    setBlocks(
-                      blocks.map((b, i) =>
-                        i === index ? { ...b, text: e.target.value } : b
-                      )
-                    )
-                  }
-                />
-                <button onClick={() => toggleEditing(index)}>Done</button>
-              </div>
-            ) : (
-              <div>
-                <h2>{block.title}</h2>
-                <p>{block.text}</p>
-                <button onClick={() => toggleEditing(index)}>Edit</button>
-              </div>
-            )}
-            <button onClick={() => removeBlock(index)}>Remove</button>
+            <div>
+              <h2>{block.title}</h2>
+              <p>
+                <Linkify componentDecorator={componentDecorator}>
+                  {block.text}
+                  </Linkify>
+              </p>
+            </div>
           </div>
         ))}
       <button onClick={prevBlock}>Previous Page</button>
@@ -88,4 +54,5 @@ function InteractiveBlockList() {
 }
 
 export default InteractiveBlockList;
+
 

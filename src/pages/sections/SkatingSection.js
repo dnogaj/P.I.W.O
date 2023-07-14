@@ -13,7 +13,7 @@ function SkatingSection() {
         <image src="/image/ski.jpg"
         autoPlay loop muted />
         <h1>Rolki</h1>
-        <p>Looks like skiing, but hurts more when making mistake :)</p>
+        <p>Looks like skiing, but hurts more when making mistake &#128512;</p>
       </div> 
         <div className='text-area-container'>
           <div className="cards">
