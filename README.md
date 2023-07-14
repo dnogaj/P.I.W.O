@@ -1,3 +1,6 @@
+# to install packages use npm/yarn to package.json file and pip to requirements.txt file
+# before using delate pythonsqlite.db or move it to the 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
