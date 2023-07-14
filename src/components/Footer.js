@@ -61,7 +61,7 @@ function Footer() {
               value={email}
               onChange={handleInputChange}
             />
-            <Button buttonStyle='btn--outline' onClick={handleSubmit}>Dołącz do nas</Button>
+            <Button scrollToTop={true} className='btns' buttonStyle="btn--outline" buttonSize="btn--medium" onClick={handleSubmit}>Dołącz do nas</Button>
           </form>
         </div>
       </section>
@@ -69,7 +69,7 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>O nas</h2>
-            <Link to='/sign-up'>Dołącz do nas!</Link>
+            <Link to='/sing-up'>Dołącz do nas!</Link>
             <Link to='/'>Home</Link>
             <Link to='/sections'>Sekcje</Link>
             <Link to='/alerts'>Komunikaty</Link>

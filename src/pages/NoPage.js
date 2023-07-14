@@ -5,7 +5,7 @@ function NoPage() {
   return (
     <>
     <div className='no-page-error'>
-        Page not found.
+    Error 404: file not found.  <br/> &#128565;
     </div>
     </>
   );

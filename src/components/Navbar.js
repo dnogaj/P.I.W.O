@@ -85,7 +85,7 @@ function Navbar() {
                             </>
                         )}
                     </ul>
-                    {button && !isLoggedIn && <Button linkTo="/sing-up" buttonStyle='btn--outline'>Dołącz do nas!</Button>}
+                    {button && !isLoggedIn && <Button scrollToTop={true} linkTo="/sing-up" buttonStyle='btn--outline'>Dołącz do nas!</Button>}
                     {button && !isLoggedIn && <Button linkTo="/log-in" buttonStyle='btn--outline'>Zaloguj się</Button>}
                     {button && isLoggedIn && <Button buttonStyle='btn--outline' onClick={handleLogout}>Wyloguj się </Button>}
                 </div> 

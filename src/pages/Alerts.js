@@ -6,7 +6,6 @@ function Alerts() {
     return (
         <>
         <div className="text-area-container">
-        <h1>Alerts</h1>
         <InteractiveBlockList />
         </div>
 

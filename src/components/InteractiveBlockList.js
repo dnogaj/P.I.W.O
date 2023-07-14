@@ -12,13 +12,13 @@ function InteractiveBlockList() {
     if (isLoggedIn) {
       fetch('http://127.0.0.1:5000/alerts')
         .then(response => response.json())
-        .then(data => setBlocks(data))
+        .then(data => setBlocks(data.reverse())) // Odwrócenie kolejności bloków
         .catch(err => console.log(err));
     }
   }, [isLoggedIn]);
 
   const nextBlock = () => {
-    if (currentPage < Math.floor(blocks.length / 10)) { 
+    if (currentPage < Math.floor(blocks.length / 10)) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -37,14 +37,14 @@ function InteractiveBlockList() {
 
   return (
     isLoggedIn ? (
-      <div>
+      <div className="interactive-block-list">
         {blocks
           .slice(currentPage * 10, (currentPage * 10) + 10)
           .map((block, index) => (
             <div key={index} className="interactive-block">
               <div>
-                <h2>{block.title}</h2>
-                <p>
+                <h2 className="block-title">{block.title}</h2>
+                <p className="block-text">
                   <Linkify componentDecorator={componentDecorator}>
                     {block.text}
                   </Linkify>
@@ -52,11 +52,13 @@ function InteractiveBlockList() {
               </div>
             </div>
           ))}
-        <button onClick={prevBlock}>Previous Page</button>
-        <button onClick={nextBlock}>Next Page</button>
+        <div className="pagination-buttons">
+          <button className="pagination-button" onClick={prevBlock}>Poprzednia strona</button>
+          <button className="pagination-button" onClick={nextBlock}>Następna strona</button>
+        </div>
       </div>
     )
-    : <div> Musisz być zalogowany aby widzieć komunikaty</div>
+      : <div className="login-message">Musisz być zalogowany aby widzieć komunikaty.</div>
   );
 }
 

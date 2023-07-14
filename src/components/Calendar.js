@@ -9,6 +9,7 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import { AuthContext } from "./AuthContext";
 import "../App.css";
+import "./Calendar.css";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -22,7 +23,7 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const categories = ["Ski", "Sail", "Rollerblade", "Other"];
+const categories = ["Narciarstwo", "Żeglarstwo", "Rolki", "Inne"];
 
 function Calendarr() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -45,10 +46,10 @@ function Calendarr() {
       const response = await fetch("http://127.0.0.1:5000/events");
       const data = await response.json();
 
-      const eventsWithCorrectDates = data.map(event => ({
+      const eventsWithCorrectDates = data.map((event) => ({
         ...event,
         start: new Date(event.start),
-        end: new Date(event.end)
+        end: new Date(event.end),
       }));
 
       setAllEvents(eventsWithCorrectDates);
@@ -59,7 +60,7 @@ function Calendarr() {
 
   async function handleAddEvent() {
     if (!newEvent.title || !newEvent.start || !newEvent.end || !newEvent.category) {
-      alert("Please fill all the fields");
+      alert("Wypełnij wszystkie pola aby wysłać");
       return;
     }
 
@@ -72,7 +73,7 @@ function Calendarr() {
     });
 
     if (response.ok) {
-      alert("Event sent to server");
+      alert("Wydarzenie zostało pomyślnie dodane. Czeka na akceptację przed administratora");
       setNewEvent({
         title: "",
         start: "",
@@ -82,59 +83,61 @@ function Calendarr() {
       });
       fetchEvents();
     } else {
-      console.error("Error sending event to server");
+      console.error("Problem z wysłaniem na serwer");
     }
   }
 
   const filteredEvents = filter === "All" ? allEvents : allEvents.filter((event) => event.category === filter);
   return (
-    <div className="Calendar">
-      <h1>Calendar</h1>
-      {isLoggedIn && ( <>
-      <h2>Add New Event</h2>
-      <div>
-        <input
-          type="text"
-          placeholder="Add Title"
-          style={{ width: "20%", marginRight: "10px" }}
-          value={newEvent.title}
-          onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-        />
-        <DatePicker
-          placeholderText="Start Date"
-          style={{ marginRight: "10px" }}
-          selected={newEvent.start}
-          onChange={(start) => setNewEvent({ ...newEvent, start })}
-        />
-        <DatePicker
-          placeholderText="End Date"
-          selected={newEvent.end}
-          onChange={(end) => setNewEvent({ ...newEvent, end })}
-        />
-        <select
-          value={newEvent.category}
-          onChange={(e) => setNewEvent({ ...newEvent, category: e.target.value })}
-        >
-          <option value="">Select category...</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-        <input
-          type="color"
-          value={newEvent.color}
-          onChange={(e) => setNewEvent({ ...newEvent, color: e.target.value })}
-        />
-        <button style={{ marginTop: "10px" }} onClick={handleAddEvent}>
-          Add Event
-        </button>
-      </div>
-      </> )}
-      <h2>Filter Events</h2>
-      <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-        <option value="All">All</option>
+    <div className="calendarr-container">
+      <div className="calendar-title">Kalendarz wydarzeń</div>
+      {isLoggedIn && (
+        <>
+          <h2>Dodaj nowe wydarzenie:</h2>
+          <div className="add-event">
+            <input
+              type="text"
+              placeholder="Add Title"
+              className="event-input"
+              value={newEvent.title}
+              onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+            />
+            <div className="date-picker-container">
+              <DatePicker
+                placeholderText="Data początkowa"
+                className="date-picker"
+                selected={newEvent.start}
+                onChange={(start) => setNewEvent({ ...newEvent, start })}
+              />
+              <DatePicker
+                placeholderText="Data końcowa"
+                className="date-picker"
+                selected={newEvent.end}
+                onChange={(end) => setNewEvent({ ...newEvent, end })}
+              />
+            </div>
+            <select
+              value={newEvent.category}
+              onChange={(e) => setNewEvent({ ...newEvent, category: e.target.value })}
+              className="event-input"
+            >
+              <option value="">Wybierz kategorię...</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            
+            <button className="add-event-button" onClick={handleAddEvent}>
+              Dodaj wydarzenie
+            </button>
+          </div>
+        </>
+      )}
+      <h2 >Filtruj wydarzenia: </h2>
+      <select value={filter} onChange={(e) => setFilter(e.target.value)} className="event-filter">
+        <option value="All">Wszystkie</option>
         {categories.map((category) => (
           <option key={category} value={category}>
             {category}
@@ -146,7 +149,7 @@ function Calendarr() {
         events={filteredEvents}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500, margin: "50px" }}
+        className="calendar-container"
         eventPropGetter={(event) => ({
           style: {
             backgroundColor: event.color,
@@ -158,4 +161,3 @@ function Calendarr() {
 }
 
 export default Calendarr;
-  

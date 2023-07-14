@@ -11,17 +11,29 @@ export const Button = ({
     onClick,
     buttonStyle,
     buttonSize,
-    linkTo
+    linkTo,
+    scrollToTop // Dodana nowa właściwość
 }) => {
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
-
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
+
+    const handleClick = () => {
+      if (scrollToTop) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+      if (onClick) {
+        onClick();
+      }
+    };
 
     return (
         <Link to={linkTo} className='btn-mobile'>
-        <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
-            {children}
-        </button>
+          <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={handleClick} type={type}>
+              {children}
+          </button>
         </Link>
     );
 };

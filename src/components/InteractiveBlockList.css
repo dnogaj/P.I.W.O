@@ -1,51 +1,49 @@
+.interactive-block-list {
+  margin: 20px;
+}
+
 .interactive-block {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    width: 50vw;  /* blok zajmuje połowę szerokości obszaru widoku */
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-  }
-  
-  .interactive-block textarea {
-    resize: none;  /* zapobiega ręcznemu zmienianiu rozmiaru pola tekstowego przez użytkownika */
-  }
-  
-  
-  .interactive-block-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  button {
-    margin-top: 10px;
-    background-color: #fff;
-    color: rgb(28, 27, 27);
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: rgb(28, 27, 27);
-    color: #fff;
-    transition: all 0.3s ease-out;
-  }
-  
-  input {
-    margin-bottom: 10px;
-    padding: 5px;
-  }
-  
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.block-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.block-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
 
 .link-style {
-  color: #fff;
+  color: #3498db;
   text-decoration: underline;
+}
+
+.pagination-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination-button {
+  padding: 13px 20px;
+  margin: 0 10px;
+  width: 150px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.login-message {
+  margin: 20px;
+  text-align: center;
+  font-size: 100px;
 }

@@ -2,9 +2,9 @@
     text-align: center;
     margin: auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     font-family: 'PT Sans', sans-serif;
-    margin-top: 20%;
-    font-size: 40px;
+    font-size: 80px;
+    text-align: left;
+    min-height: 100vh;
 }

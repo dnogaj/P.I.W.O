@@ -16,6 +16,7 @@ function MainHome() {
                     className='btns'
                     buttonStyle="btn--outline"
                     buttonSize="btn--large"
+                    linkTo='/sections'
                 >
                     Dawaj z nami!
                 </Button>

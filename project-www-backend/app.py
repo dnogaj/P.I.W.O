@@ -216,7 +216,7 @@ def unsubscribe(token):
     if token:
         from newsleter_deleter import delete
         delete(token)
-        return "Wypisanie z newslettera przebiegło pomyślnie. Nie będziesz już otrzymywać żadnych nowości z naszej strony."  #todo zmienic jakos zeby dzialalo
+        return "Wypisanie z newslettera przebiegło pomyślnie. Nie będziesz już otrzymywać żadnych nowości z naszej strony." 
     else:
         return "Invalid unsubscription link."
 
