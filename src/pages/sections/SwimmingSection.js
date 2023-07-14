@@ -12,7 +12,7 @@ function SwimmingSection() {
         {/* <image src="/image/ski.jpg"
         autoPlay loop muted /> */}
         <h1>Swimming</h1>
-        <p>"I can only control my own performance." ~ Michael Phelps</p>
+        <p className='p-about'>"I can only control my own performance." ~ Michael Phelps &#128373;</p>
       </div> 
         <div className='text-area-container'>
           <div className="cards">
