@@ -1,7 +1,8 @@
 from datetime import datetime
+from random import randint
 from flask import jsonify
 from flask_admin.contrib.sqla import ModelView
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for
 from flask_admin import Admin
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -30,6 +31,7 @@ class User(db.Model):
 class NewsletterEmail(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    forget_not = db.Column(db.BigInteger, unique=True, nullable=False)  # unsubscribe number
 
 
 class Alerts(db.Model):
@@ -63,7 +65,7 @@ def create_and_commit():
 with app.app_context():
     create_and_commit()
 
-admin = Admin(app, name='iltam_zumra_rashupti_ilatim', template_mode='bootstrap4')
+admin = Admin(app, name='Panel Admina strony P.I.W.O', template_mode='bootstrap4')
 
 
 class MicroBlogModelView(ModelView):
@@ -144,28 +146,18 @@ def add_email():
         existing_email = NewsletterEmail.query.filter_by(email=email).first()
         if existing_email:
             return {"error": "Email already exists!"}, 400
-        new_email = NewsletterEmail(email=email)
+        no_infinite = 0
+        while True:
+            BFN = randint(68, 9223372036854775807)
+            if not NewsletterEmail.query.filter_by(forget_not=BFN).first():
+                break
+        new_email = NewsletterEmail(email=email, forget_not=BFN)
         db.session.add(new_email)
         db.session.commit()
         return {"message": "Email added successfully!"}, 201
     else:
         return {"error": "No email provided!"}, 400
 
-
-# @app.route('/blacks', methods=['POST'])
-# def add_alert():
-#     data = request.get_json()
-#     title = data.get('title')
-#     text = data.get('text')
-#     if not text or not title:
-#         return {'error': 'Something is missing'}
-#     alert = Alerts.query.filter_by(text=text).first()
-#     if alert:
-#         return {'error': 'message alert already exists'}
-#     alert = Alerts(title=title, text=text)
-#     db.session.add(alert)
-#     db.session.commit()
-#     return {'message': 'Alert added'}
 
 @app.route('/alerts', methods=['GET'])
 def get_alerts():
@@ -211,17 +203,29 @@ def create_event():
     find_article = Article.query.filter_by(title=title, start_date=str(start).split(" ")[0], end_date=str(end).split(" ")[0], category=category).first()
     print(find_article)
     if find_article:
-        print("#####################")
-        print("notSent")
         return jsonify({'message': 'already exists'})
 
     new_article = Article(title=title, start_date=start, end_date=end, category=category)
     db.session.add(new_article)
     db.session.commit()
-    print("#####################")
-    print("Sent")
     return jsonify({'message': 'Event added'}), 201
 
+
+@app.route('/unsubscribe/<token>')
+def unsubscribe(token):
+    if token:
+        from newsleter_deleter import delete
+        delete(token)
+        return "Wypisanie z newslettera przebiegło pomyślnie. Nie będziesz już otrzymywać żadnych nowości z naszej strony."  #todo zmienic jakos zeby dzialalo
+    else:
+        return "Invalid unsubscription link."
+
+@app.route('/', methods=['GET'])
+def index():
+    return f"""
+    <h1>Panel admina znajduje się <a href="http://127.0.0.1:5000/admin/">TUTAJ</a></h1>
+    """
+    
 
 if __name__ == '__main__':
     with app.app_context():
