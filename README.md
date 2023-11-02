@@ -14,14 +14,14 @@ We cover the following functionalities:
 * footer with many things like external links, shortcuts, ect.
 * few other tabs
 
-## Authors:  <br />
+## Authors:
 [Huber Mąka](https://github.com/norka02) <br />
 [Dominik Nogaj](https://github.com/dnogaj) <br />
 [Jakub Kowal](https://github.com/jd-kowal) <br />
 
 *** 
 *** 
-<br /><br />
+<br /><br /><br />
 
 # To install packages use npm/yarn to package.json file and pip to requirements.txt file
 # Before using delate pythonsqlite.db from root folder
