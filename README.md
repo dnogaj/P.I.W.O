@@ -1,3 +1,14 @@
+# P.I.W.O PROJECT
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,react,python,flask)](https://skillicons.dev)
+## About
+TFR - Try Fail Repeat <br /><br />
+
+## Authors:  <br />
+[Huber Mąka](https://github.com/norka02) <br />
+[Dominik Nogaj](https://github.com/dnogaj) <br />
+[Jakub Kowal](https://github.com/jd-kowal) <br />
+
+
 # To install packages use npm/yarn to package.json file and pip to requirements.txt file
 # Before using delate pythonsqlite.db from root folder
 
