@@ -13,7 +13,7 @@ We cover the following functionalities:
 * tab with the club's sections
 * footer with many things like external links, shortcuts, ect.
 * few other tabs
-  <br /><br />
+<br /><br />
 You can see some screenshots of our application in [Przykładowe-zdjęcia-aplikacji](https://github.com/jd-kowal/P.I.W.O/tree/main/Przyk%C5%82adowe-zdj%C4%99cia-aplikacji) folder.<br />
   
 ## Authors:
