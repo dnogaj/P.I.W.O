@@ -1,7 +1,18 @@
 # P.I.W.O PROJECT
 [![My Skills](https://skillicons.dev/icons?i=js,html,css,react,python,flask)](https://skillicons.dev)
 ## About
-TFR - Try Fail Repeat <br /><br />
+P.I.W.O stands for Postakademicka Inicjatywa Wietnamskich Oślizgów <br /><br />
+This is a web application based on the [KN LIDER]([https://github.com/norka02](https://lider.krakow.pl/)) website. <br />
+We cover the following functionalities:
+* responsive website
+* admin panel
+* option to create an account
+* option to add announcements
+* option to add oneself to the newsletter
+* event calendar and adding events
+* tab with the club's sections
+* footer with many things like external links, shortcuts, ect.
+* few other tabs
 
 ## Authors:  <br />
 [Huber Mąka](https://github.com/norka02) <br />
@@ -10,6 +21,7 @@ TFR - Try Fail Repeat <br /><br />
 
 *** 
 *** 
+<br /><br />
 
 # To install packages use npm/yarn to package.json file and pip to requirements.txt file
 # Before using delate pythonsqlite.db from root folder
