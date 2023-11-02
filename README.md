@@ -1,7 +1,7 @@
 # P.I.W.O PROJECT
 [![My Skills](https://skillicons.dev/icons?i=js,html,css,react,python,flask)](https://skillicons.dev)
 ## About
-P.I.W.O stands for Postakademicka Inicjatywa Wietnamskich Oślizgów <br /><br />
+P.I.W.O stands for Post Academic Initiative of Vietnamese Slippers (pl. Postakademicka Inicjatywa Wietnamskich Oślizgów) <br /><br />
 This is a web application based on the [KN LIDER]([https://github.com/norka02](https://lider.krakow.pl/)) website. <br />
 We cover the following functionalities:
 * responsive website
