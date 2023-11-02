@@ -2,7 +2,7 @@
 [![My Skills](https://skillicons.dev/icons?i=js,html,css,react,python,flask)](https://skillicons.dev)
 ## About
 P.I.W.O stands for Post Academic Initiative of Vietnamese Slippers (pl. Postakademicka Inicjatywa Wietnamskich Oślizgów) <br /><br />
-This is a web application based on the [KN LIDER](https://lider.krakow.pl/) website. <br />
+This is a web application based on the [KN LIDER](https://lider.krakow.pl/) website. We decided to try to create a "better" copy and add some features from us.<br /><br />
 We cover the following functionalities:
 * responsive website
 * admin panel
